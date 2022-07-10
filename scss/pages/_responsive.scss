@@ -1,0 +1,388 @@
+@media screen and (max-width:368px) {
+    .nav{
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+        justify-items: center;
+        justify-self: center;
+        overflow: hidden;
+    }
+    .flexHeader {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        transform: scale(0.8);
+    }
+    .botonPedido{
+        border-radius: 5px;
+        border-style: solid;
+        color: white;
+    }
+    ul li a {
+        display: inline-block;
+        margin: 5px;
+    }
+    .flexMenuNav {
+        display: flex;
+        flex-direction: row;
+        align-items: left;
+    }
+    .cajaBienvenidos {
+        transform: scale(0.9);
+        display: flex;
+        justify-self: center;
+    }
+    .flexFooter {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .horarios {
+        transform: scale(0.9);
+    }
+    .direccion {
+        transform: scale(0.9);
+        
+    }
+    .redes {
+        transform: scale(0.9);
+    }
+    /*Nosotros*/
+    $caracteristicas:(
+        transformacion:scale(0.65),
+        ancho: 500px,
+        alto: 200px,
+        margen: 0px,
+    );
+    .quienessomos {
+        transform:map-get($caracteristicas, transformacion );
+        width: map-get($caracteristicas, $key:ancho );
+        height: map-get($caracteristicas, $key:alto );
+        margin-bottom: map-get($caracteristicas, $key:margen );
+    }
+    .enlacocina {
+        transform:map-get($caracteristicas, transformacion );
+        width: map-get($caracteristicas, $key:ancho );
+        height: map-get($caracteristicas, $key:alto );
+        margin-bottom: map-get($caracteristicas, $key:margen );
+    }
+    /*Reservas*/
+    .menuReservas{
+        background-color: transparent;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4,30px);
+        grid-row-gap: 10px;
+        margin: 0px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+    }
+    .formReservas{
+        display: grid;
+        grid-template-rows: 350px 20px 300px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        justify-content: center;
+        
+    }
+
+    .favorito{
+        /*grid-area: favorito;*/
+        transform: scale(0.5);
+        margin: 30px;
+        margin-bottom: 50px;
+    }
+    .formContactoReservas{
+        transform: scale(0.7);
+    }
+    .intContacto {
+        justify-content: none;
+        margin:5px;
+    }
+    /*Menu*/
+    .flexFooterMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tituloMenu{
+        transform: scale(0.70);
+    }
+    .ee{
+        transform: scale(0.70);
+    }
+    .pp{
+        transform: scale(0.70);
+    }
+    .po{
+        transform: scale(0.70);
+    }
+    .imgMenu{
+        padding: 10px;
+    }
+    @for $i from 1 through 4 {
+        entrada#{$i}{
+            grid-area: entrada#{$i};
+        }
+    }
+    
+    @for $i from 1 through 4 {
+        etxt#{$i}{
+            grid-area: etxt#{$i};
+            transform: scale(0.8);
+        }
+    }
+
+    .entradas {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .potxt1{
+        grid-area: etxt1;
+        transform: scale(0.8);
+    }
+    .potxt2{
+        grid-area: etxt2;
+        transform: scale(0.8);
+    }
+    .potxt3{
+        grid-area: etxt3;
+        transform: scale(0.8);
+    }
+    .potxt4{
+        grid-area: etxt4;
+        transform: scale(0.80);
+    }
+    .postres {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .pp1{
+        grid-area: entrada1;
+    }
+    .pp2{
+        grid-area: entrada2;
+    }
+    .pp3{
+        grid-area: entrada3;
+    }
+    .pp4{
+        grid-area: entrada4;
+    }
+    .ptxt1{
+        grid-area: etxt1;
+        transform: scale(0.8);
+    }
+    .ptxt2{
+        grid-area: etxt2;
+        transform: scale(0.8);
+    }
+    .ptxt3{
+        grid-area: etxt3;
+        transform: scale(0.8);
+    }
+    .ptxt4{
+        grid-area: etxt4;
+        transform: scale(0.80);
+    }
+    .platosPrincipales {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .parallaxMenu {
+        height: 650vh;
+        
+    }
+    /*Drinks*/
+    @for $i from 1 through 9 {
+        .t#{$i}{
+            grid-area: t#{$i};
+        }
+    }
+
+    @for $i from 1 through 9 {
+        .d#{$i}{
+            grid-area: d#{$i};
+        }
+    }
+
+    .videot{
+        grid-area: videot;
+        width: 50PX;
+        height: 50PX;
+        margin-top: 50px;
+        margin-bottom: 25PX;
+    }
+    .imgDrinks{
+        transform: scale(0.4);
+    }
+    .tequila{
+        display: grid;
+        grid-template-columns: 200px 100px;
+        grid-template-rows: 150px;
+        grid-template-areas: 
+        "d1 t1"
+        "d2 t2"
+        "d3 t3"
+        "d4 t4"
+        "d5 t5"
+        "d6 t6"
+        "d7 t7"
+        "d8 t8"
+        "d9 t9";
+        justify-content: center;
+        align-items: center;
+    }
+    .cuadroTequila {
+        /*display: grid;
+        grid-template-columns: 50px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+        "videot"*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .parallaxDrinks {
+        height: 500vh;
+    }
+    /*Contactos*/
+    .cuadroSugerencias {
+        transform: scale(0.7);
+        margin-top: 0px;
+        margin-left: 0px;
+        display: grid;
+        grid-area: cuadroSugerencias;
+        justify-self: center;
+        
+    }
+    .sugerencias { 
+        display: grid;
+        grid-template-areas: 
+        "cuadroSugerencias"
+        "formContacto";
+        justify-content: center;
+    }
+    .parallaxContacto{
+        height: 100vh;
+    }
+    /*PedidoOnline*/
+    @for $i from 1 through 12 {
+        .poo#{$i}{
+            grid-area: poo#{$i};
+        }
+    }
+    @for $i from 1 through 12 {
+        .tpo#{$i}{
+            grid-area: tpo#{$i};
+        }
+    }
+    @for $i from 1 through 12 {
+        .por#{$i}{
+            grid-area: por#{$i};
+            font-size: small;
+        }
+    }
+    @for $i from 1 through 12 {
+        .cpor#{$i}{
+            grid-area: cpor#{$i};
+            transform: scale(0.8);
+        }
+    }
+    @for $i from 1 through 12 {
+        .b#{$i}{
+            grid-area: b#{$i};
+            transform: scale(0.8);
+        }
+    }
+
+    .pedidosonline{
+        display: flex;
+        flex-direction: column;
+    }
+    .entradasPO {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        margin: 0px;
+        display: grid;
+        grid-template-columns: 200px 50px 50px 50px;
+        grid-template-rows: 60px 60px;
+        justify-content: center;
+        justify-self: start;
+        align-self: start;
+        grid-template-areas: 
+        "poo1 tpo1 tpo1 tpo1"
+        "poo1 por1 cpor1 b1"
+        "poo2 tpo2 tpo2 tpo2"
+        "poo2 por2 cpor2 b2"
+        "poo3 tpo3 tpo3 tpo3"
+        "poo3 por3 cpor3 b3"
+        "poo4 tpo4 tpo4 tpo4"
+        "poo4 por4 cpor4 b4"
+        "poo5 tpo5 tpo5 tpo5"
+        "poo5 por5 cpor5 b5"
+        "poo6 tpo6 tpo6 tpo6"
+        "poo6 por6 cpor6 b6"
+        "poo7 tpo7 tpo7 tpo7"
+        "poo7 por7 cpor7 b7"
+        "poo8 tpo8 tpo8 tpo8"
+        "poo8 por8 cpor8 b8"
+        "poo9 tpo9 tpo9 tpo9"
+        "poo9 por9 cpor9 b9"
+        "poo10 tpo10 tpo10 tpo10"
+        "poo10 por10 cpor10 b10"
+        "poo11 tpo11 tpo11 tpo11"
+        "poo11 por11 cpor11 b11"
+        "poo12 tpo12 tpo12 tpo12"
+        "poo12 por12 cpor12 b12";
+        transform: scale(0.8);
+        
+    }
+    .flexFooterPO {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .parallaxPO {
+        height: 350vh;
+    }
+    .menuPO{
+        
+        margin: 0px;
+    }
+}

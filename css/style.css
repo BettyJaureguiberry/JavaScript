@@ -1,0 +1,1308 @@
+* {
+    Margin:0; padding:0;
+}
+.imgfondo {
+    background-image: url ("../imagenes/imagen home.png");
+}
+.parallax {
+
+    background-image: url("/img/maxresdefault.jpg");
+    height: 120vh;
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    justify-items: center;
+    justify-self: baseline;
+    overflow: hidden;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.fondoNegro {
+    background-color: black;
+}
+article p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+section h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white
+}
+footer aside p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:white;
+}
+.logo {
+    width: 250px;
+    height: 100px;
+}
+
+.flexHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    position: relative;
+}
+
+.cajaBienvenidos {
+    margin: 5px;
+    /*width: 200px;
+    height:400px;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: black;
+    text-align: center;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;*/
+
+
+}
+.textoCajaBienvenidos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.botonPedido{
+    border-radius: 5px;
+    border-style: solid;
+    color: white;
+    padding: 5px;
+}
+ul li a {
+    display: inline-block;
+    margin: 10px;
+}
+.flexMenuNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.textoBienvenidos {
+    display: inline-block;
+    line-height: 1.6;
+
+}
+
+.horarios {
+    display: inline-block;
+    text-align: center;
+    line-height: 1.6;
+    padding: 10px;
+}
+.direccion {
+    display: inline-block;
+    text-align: center;
+    line-height: 1.6;
+    padding: 10px;
+
+}
+.redes {
+    display: inline-block;
+    line-height: 1.6;
+    padding: 10px;
+
+}
+.flexFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+.iconosRedes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+/*Nosotros*/
+.txtNosotros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.quienessomos {
+    text-align: center;
+    color:black;
+    line-height: 1.6;
+    border-radius: 5px;
+    border-style: solid;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 800px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    margin-bottom: 60px;
+}
+
+.cuadrosTXT {
+    /*display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr none 1fr;*/
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.enlacocina {
+    text-align: center;
+    color:black;
+    line-height: 1.6;
+    border-radius: 5px;
+    border-style: solid;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 800px;
+    height: 100px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*contacto*/
+
+.sugerencias { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.cuadroSugerencias { 
+    width: 250px;
+    height:400px;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: black;
+    padding:10px;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-left: 250px;
+}
+.centrar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.formContacto {
+    margin: 5px;
+    /*border-radius: 10px;
+    border-style: solid;
+    color: white;
+    display: inline-block;
+    background-color: black;
+    width: 450px;
+    height:450px;*/
+}
+.textoSugerencia {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:white;
+    margin: 10px;
+}
+.intContacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin:10px;
+    line-height: 2;
+}
+.botonesContacto {
+    padding: 15px;
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /*margin: 10px;*/
+}
+.casilla{
+    background-color: black;
+    border-bottom: 2px;
+    border-style: solid;
+    color: white;
+    margin: 5px;
+}
+.boton{
+    display: flex;
+    justify-content: end;
+}
+/*arranca pagina de reservas*/
+.menuReservas{
+    width: 95%;
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin: 10px;
+}
+.casilla{
+    background-color:black ;
+}
+.formContactoReservas{
+    width: 450px;
+    height:450px;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin: 60px;
+}
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    /*padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    background-image: linear-gradient(rgb(83, 83, 83), rgb(241, 241, 239));
+    border-style: solid 6px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;*/
+
+}
+.formReservas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*.formReservasConBotones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}*/
+/*.mapa {
+    position: absolute;
+    top:660px;
+    width:450px; 
+    height: 450px; 
+    border-radius:10px;
+}*/
+
+.favorito{
+    width: 20rem;
+    height: 10rem;
+    border-radius: 10px;
+    margin-left: 25rem;
+}
+
+/*
+.ejemploclase{
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "nav header header"
+    "nav sec1 secundario"
+    "nav sec2 secundario"
+    "nav  .   secundario"
+    "nav pie pie";
+    grid-template-columns: 15% 1fr 1fr;
+    grid-template-rows: repeat (4,1fr);
+
+}
+.encabezadoejemploclase {
+    grid-area: header;
+}
+
+.ejejercicio {
+    display: grid;
+    grid-template-rows: 8% 7% repeat(2, 1fr);
+    grid-template-columns: 7% repeat(4, 1fr);
+
+}*/
+/*.menuGral{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(17, 1fr);
+}*/
+
+/*arranca pagina menu*/
+.imgMenu{
+    width: 75%;
+    height: 75%;
+    border-radius: 10px;
+}
+.tituloMenu{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+    font-size: 22px;
+
+}
+.entradas {
+
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: 250px 20px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:black;
+}
+.platosPrincipales{
+
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: 250px 20px;
+    grid-row-gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+.pp{ /* titulo platos principales*/
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    margin: 10px;
+}
+.ee{ /*titulo entradas*/
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+.postres{
+
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: 250px 20px;
+    grid-row-gap: 5px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    text-align: center;
+    margin-bottom: 50px;
+    
+}
+.po{/* titulo postres*/
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+.parallaxMenu {
+
+    background-image: url("/img/maxresdefault.jpg");
+    height: 250vh;
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.flexFooterMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+/*pedidos online*/
+.menuPO{
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin: 10px;
+}
+/*.formContactoPO {
+    border-radius: 10px;
+    border-style: solid;
+    color: white;
+    display: inline-block;
+    background-color: black;
+    width: 100%;
+    height:250px;
+}*/
+.entradasPO {
+    display: grid;
+    grid-template-columns: 200px 200px 100px 20px 50px 200px 200px 100px 20px 50px;
+    grid-template-rows: repeat (6,200px);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 10px;
+    justify-items:  center;
+    align-items: center;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.cantPorc{
+    width: 150%;
+
+}
+.parallaxPO {
+
+    background-image: url("/img/maxresdefault.jpg");
+    height: 200vh;
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.flexFooterPO {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.tituloPO{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+.animacion:hover {
+    transform: scale(1.5);
+    opacity: 0.75;
+
+}
+/*drinks*/
+.titulodrinks{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+.tequila{
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    grid-template-rows: 200px 30px 200px 30px 200px 30px;    
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+.imgDrinks {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+}
+.cuadroTequila {
+    display: grid;
+    grid-template-columns: 250px 600px;
+    grid-row: 400px;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+.parallaxDrinks {
+
+    background-image: url("/img/maxresdefault.jpg");
+    height: 150vh;
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#video {
+    width:200px;
+    height:350px;
+}
+/* https://flexboxfroggy.com/#es
+https://cssgridgarden.com/#es
+https://drive.google.com/file/d/1JYJBEt-EkNpVrsoDuDkiMh0vrBiVMZvP/view?usp=sharing
+
+/*******************************************media****************************************************************/
+/*index*/
+@media screen and (max-width:368px) {
+    .nav{
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+        justify-items: center;
+        justify-self: center;
+        overflow: hidden;
+    }
+    .flexHeader {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        transform: scale(0.8);
+    }
+    .botonPedido{
+        border-radius: 5px;
+        border-style: solid;
+        color: white;
+    }
+    ul li a {
+        display: inline-block;
+        margin: 5px;
+    }
+    .flexMenuNav {
+        display: flex;
+        flex-direction: row;
+        align-items: left;
+    }
+    .cajaBienvenidos {
+        /*width: 200px;
+        height:400px;
+        border-radius: 10px;
+        border-style: solid;
+        background-color: black;
+        text-align: center;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;*/
+        transform: scale(0.9);
+        display: flex;
+        justify-self: center;
+    }
+    .flexFooter {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .horarios {
+        transform: scale(0.9);
+        /*display: inline-block;
+        text-align: center;
+        line-height: 1.6;
+        padding: 10px;*/
+    }
+    .direccion {
+        transform: scale(0.9);
+        /*display: inline-block;
+        text-align: center;
+        line-height: 1.6;
+        padding: 10px;*/
+    
+    }
+    .redes {
+        transform: scale(0.9);
+        /*display: inline-block;
+        line-height: 1.6;
+        padding: 10px;*/
+    
+    }
+    /*Nosotros*/
+    .quienessomos {
+        transform: scale(0.65);
+        width: 500px;
+        height: 200px;
+        margin-bottom: 0px;
+    }
+    .enlacocina {
+        transform: scale(0.65);
+        width: 500px;
+        height: 200px;
+        margin-top: 0px;
+    }
+    /*Reservas*/
+    .menuReservas{
+        background-color: transparent;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4,30px);
+        grid-row-gap: 10px;
+        margin: 0px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+    }
+    .formReservas{
+        /*display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 30px;*/
+        display: grid;
+        grid-template-rows: 350px 20px 300px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        /*grid-template-areas: 
+        "formContactoReservas"
+        "favorito";*/
+        justify-content: center;
+    
+        
+    }
+    .favorito{
+        /*grid-area: favorito;*/
+        transform: scale(0.5);
+        margin: 30px;
+        margin-bottom: 50px;
+    }
+    .formContactoReservas{
+        /*width: 450px;
+        height:400px;
+        background-color: black;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        margin: 60px;*/
+        /*grid-area: formContactoReservas;*/
+        transform: scale(0.7);
+    }
+    .intContacto {
+        justify-content: none;
+        margin:5px;
+    }
+    /*Menu*/
+    .flexFooterMenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tituloMenu{
+        /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color:white;
+        font-size: 22px;*/
+        transform: scale(0.70);
+    }
+    .ee{
+        transform: scale(0.70);
+    }
+    .pp{
+        transform: scale(0.70);
+    }
+    .po{
+        transform: scale(0.70);
+    }
+    .imgMenu{
+        /*transform: scale(0.70);*/
+        padding: 10px;
+    }
+    
+    .entrada1{
+        grid-area: entrada1;
+    }
+    .entrada2{
+        grid-area: entrada2;
+    }
+    .entrada3{
+        grid-area: entrada3;
+    }
+    .entrada4{
+        grid-area: entrada4;
+    }
+    .etxt1{
+        grid-area: etxt1;
+        transform: scale(0.8);
+    }
+    .etxt2{
+        grid-area: etxt2;
+        transform: scale(0.8);
+    }
+    .etxt3{
+        grid-area: etxt3;
+        transform: scale(0.8);
+    }
+    .etxt4{
+        grid-area: etxt4;
+        transform: scale(0.80);
+    }
+    .entradas {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        /*grid-template-columns: repeat(2, 250px);
+        grid-template-rows: 250px 20px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 5px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color:white;*/
+    }
+    .po1{
+        grid-area: entrada1;
+    }
+    .po2{
+        grid-area: entrada2;
+    }
+    .po3{
+        grid-area: entrada3;
+    }
+    .po4{
+        grid-area: entrada4;
+    }
+    .potxt1{
+        grid-area: etxt1;
+        transform: scale(0.8);
+    }
+    .potxt2{
+        grid-area: etxt2;
+        transform: scale(0.8);
+    }
+    .potxt3{
+        grid-area: etxt3;
+        transform: scale(0.8);
+    }
+    .potxt4{
+        grid-area: etxt4;
+        transform: scale(0.80);
+    }
+    .postres {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .pp1{
+        grid-area: entrada1;
+    }
+    .pp2{
+        grid-area: entrada2;
+    }
+    .pp3{
+        grid-area: entrada3;
+    }
+    .pp4{
+        grid-area: entrada4;
+    }
+    .ptxt1{
+        grid-area: etxt1;
+        transform: scale(0.8);
+    }
+    .ptxt2{
+        grid-area: etxt2;
+        transform: scale(0.8);
+    }
+    .ptxt3{
+        grid-area: etxt3;
+        transform: scale(0.8);
+    }
+    .ptxt4{
+        grid-area: etxt4;
+        transform: scale(0.80);
+    }
+    .platosPrincipales {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "entrada1 etxt1"
+        "entrada2 etxt2"
+        "entrada3 etxt3"
+        "entrada4 etxt4";
+        margin: 5px;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .parallaxMenu {
+        height: 600vh;
+        /*background-image: url("/img/maxresdefault.jpg");
+        height: 160vh;
+        background-attachment:fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;*/
+    }
+    /*Drinks*/
+    .t1{
+        grid-area: t1;
+    }
+    .t2{
+        grid-area: t2;
+    }
+    .t3{
+        grid-area: t3;
+    }
+    .t4{
+        grid-area: t4;
+    }
+    .t5{
+        grid-area: t5;
+    }
+    .t6{
+        grid-area: t6;
+    }
+    .t7{
+        grid-area: t7;
+    }
+    .t8{
+        grid-area: t8;
+    }
+    .t9{
+        grid-area: t9;
+    }
+    .d1{
+        grid-area: d1;
+    }
+    .d2{
+        grid-area: d2;
+    }
+    .d3{
+        grid-area: d3;
+    }
+    .d4{
+        grid-area: d4;
+    }
+    .d5{
+        grid-area: d5;
+    }
+    .d6{
+        grid-area: d6;
+    }
+    .d7{
+        grid-area: d7;
+    }
+    .d8{
+        grid-area: d8;
+    }
+    .d9{
+        grid-area: d9;
+    }
+    .videot{
+        grid-area: videot;
+        transform: scale(0.60);
+        margin-top: 110px;
+    }
+    .imgDrinks{
+        transform: scale(0.5);
+    }
+    .tequila{
+        display: grid;
+        grid-template-columns: 200px 100px;
+        grid-template-rows: 150px;
+        grid-template-areas: 
+        "d1 t1"
+        "d2 t2"
+        "d3 t3"
+        "d4 t4"
+        "d5 t5"
+        "d6 t6"
+        "d7 t7"
+        "d8 t8"
+        "d9 t9";
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        /*grid-template-columns: repeat(3,200px);
+        grid-template-rows: 200px 30px 200px 30px 200px 30px;    
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
+        justify-content: center;
+        align-items: center;*/
+    }
+    .cuadroTequila {
+        display: grid;
+        grid-template-columns: 100px;
+        grid-template-rows: 100px;
+        grid-template-areas: 
+        "videot"
+        /*grid-template-columns: 200px 600px;
+        grid-row: 400px;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        text-align: center;*/
+    }
+    .parallaxDrinks {
+        height: 500vh;
+    }
+    /*Contactos*/
+    .cuadroSugerencias {
+        transform: scale(0.7);
+        margin-top: 0px;
+        margin-left: 0px;
+        display: grid;
+        grid-area: cuadroSugerencias;
+        justify-self: center;
+        /*width: 250px;
+        height:400px;
+        border-radius: 10px;
+        border-style: solid;
+        background-color: black;
+        padding:10px;
+        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 20px;
+        margin-left: 250px;*/
+    }
+    .formContacto {
+        transform: scale(0.6);
+        grid-area: formContacto;
+        display: grid;
+        justify-self: center;
+        /*border-radius: 10px;
+        border-style: solid;
+        color: white;
+        display: inline-block;
+        background-color: black;
+        width: 450px;
+        height:450px;*/
+    
+    }
+    .sugerencias { 
+        display: grid;
+        grid-template-areas: 
+        "cuadroSugerencias"
+        "formContacto";
+        justify-content: center;
+    }
+    .parallaxContacto{
+        height: 100vh;
+    }
+    /*PedidoOnline*/
+    .poo1{
+        grid-area: poo1;
+    }
+    .poo2{
+        grid-area: poo2;
+    }
+    .poo3{
+        grid-area: poo3;
+    }
+    .poo4{
+        grid-area: poo4;
+    }
+    .poo5{
+        grid-area: poo5;
+    }
+    .poo6{
+        grid-area: poo6;
+    }
+    .poo7{
+        grid-area: poo7;
+    }
+    .poo8{
+        grid-area: poo8;
+    }
+    .poo9{
+        grid-area: poo9;
+    }
+    .poo10{
+        grid-area: poo10;
+    }
+    .poo11{
+        grid-area: poo11;
+    }
+    .poo12{
+        grid-area: poo12;
+    }
+    .tpo1{
+        grid-area: tpo1;
+        /*transform: scale(0.6);*/
+    }
+    .tpo1{
+        grid-area: tpo1;
+    }    
+    .tpo2{
+        grid-area: tpo2;
+    }    
+    .tpo3{
+        grid-area: tpo3;
+    }    
+    .tpo4{
+        grid-area: tpo4;
+    }    
+    .tpo5{
+        grid-area: tpo5;
+    }    
+    .tpo6{
+        grid-area: tpo6;
+    }    
+    .tpo7{
+        grid-area: tpo7;
+    }    
+    .tpo8{
+        grid-area: tpo8;
+    }    
+    .tpo9{
+        grid-area: tpo9;
+    }    
+    .tpo10{
+        grid-area: tpo10;
+    }    
+    .tpo11{
+        grid-area: tpo11;
+    }
+    .tpo12{
+        grid-area: tpo12;
+    }
+    .por1{
+        grid-area: por1;
+        /*transform: scale(0.60);*/
+        font-size: small;
+    }
+    .por2{
+        grid-area: por2;
+        font-size: small;
+    }
+    .por3{
+        grid-area: por3;
+        font-size: small;
+    }
+    .por4{
+        grid-area: por4;
+        font-size: small;
+    }
+    .por5{
+        grid-area: por5;
+        font-size: small;
+    }
+    .por6{
+        grid-area: por6;
+        font-size: small;
+    }
+    .por8{
+        grid-area: por8;
+        font-size: small;
+    }
+    .por7{
+        grid-area: por7;
+        font-size: small;
+    }
+    .por6{
+        grid-area: por6;
+        font-size: small;
+    }
+    .por7{
+        grid-area: por7;
+        font-size: small;
+    }
+    .por8{
+        grid-area: por8;
+        font-size: small;
+    }
+    .por9{
+        grid-area: por9;
+        font-size: small;
+    }
+    .por10{
+        grid-area: por10;
+        font-size: small;
+    }
+    .por11{
+        grid-area: por11;
+        font-size: small;
+    }
+    .por12{
+        grid-area: por12;
+        font-size: small;
+    }
+    .cpor1{
+        grid-area: cpor1;
+        transform: scale(0.8);
+    }
+    .cpor2{
+        grid-area: cpor2;
+        transform: scale(0.8);
+    }
+    .cpor3{
+        grid-area: cpor3;
+        transform: scale(0.8);
+    }
+    .cpor4{
+        grid-area: cpor4;
+        transform: scale(0.8);
+    }
+    .cpor5{
+        grid-area: cpor5;
+        transform: scale(0.8);
+    }
+    .cpor6{
+        grid-area: cpor6;
+        transform: scale(0.8);
+    }
+    .cpor8{
+        grid-area: cpor8;
+        transform: scale(0.8);
+    }
+    .cpor7{
+        grid-area: cpor7;
+        transform: scale(0.8);
+    }
+    .cpor6{
+        grid-area: cpor6;
+        transform: scale(0.8);
+    }
+    .cpor9{
+        grid-area: cpor9;
+        transform: scale(0.8);
+    }
+    .cpor10{
+        grid-area: cpor10;
+        transform: scale(0.8);
+    }
+    .cpor11{
+        grid-area: cpor11;
+        transform: scale(0.8);
+    }
+    .cpor12{
+        grid-area: cpor12;
+        transform: scale(0.8);
+    }
+    .b1{
+        grid-area: b1;
+        transform: scale(0.8);
+    }
+    .b2{
+        grid-area: b2;
+        transform: scale(0.8);
+    }
+    .b3{
+        grid-area: b3;
+        transform: scale(0.8);
+    }
+    .b4{
+        grid-area: b4;
+        transform: scale(0.8);
+    }
+    .b5{
+        grid-area: b5;
+        transform: scale(0.8);
+    }
+    .b6{
+        grid-area: b6;
+        transform: scale(0.8);
+    }
+    .b7{
+        grid-area: b7;
+        transform: scale(0.8);
+    }
+    .b8{
+        grid-area: b8;
+        transform: scale(0.8);
+    }
+    .b9{
+        grid-area: b9;
+        transform: scale(0.8);
+    }
+    .b10{
+        grid-area: b10;
+        transform: scale(0.8);
+    }
+    .b11{
+        grid-area: b11;
+        transform: scale(0.8);
+    }
+    .b12{
+        grid-area: b12;
+        transform: scale(0.8);
+    }
+    .pedidosonline{
+        display: flex;
+        flex-direction: column;
+    }
+    .entradasPO {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        margin: 0px;
+        display: grid;
+        grid-template-columns: 200px 50px 50px 50px;
+        grid-template-rows: 60px 60px;
+        justify-content: center;
+        justify-self: start;
+        align-self: start;
+        grid-template-areas: 
+        "poo1 tpo1 tpo1 tpo1"
+        "poo1 por1 cpor1 b1"
+        "poo2 tpo2 tpo2 tpo2"
+        "poo2 por2 cpor2 b2"
+        "poo3 tpo3 tpo3 tpo3"
+        "poo3 por3 cpor3 b3"
+        "poo4 tpo4 tpo4 tpo4"
+        "poo4 por4 cpor4 b4"
+        "poo5 tpo5 tpo5 tpo5"
+        "poo5 por5 cpor5 b5"
+        "poo6 tpo6 tpo6 tpo6"
+        "poo6 por6 cpor6 b6"
+        "poo7 tpo7 tpo7 tpo7"
+        "poo7 por7 cpor7 b7"
+        "poo8 tpo8 tpo8 tpo8"
+        "poo8 por8 cpor8 b8"
+        "poo9 tpo9 tpo9 tpo9"
+        "poo9 por9 cpor9 b9"
+        "poo10 tpo10 tpo10 tpo10"
+        "poo10 por10 cpor10 b10"
+        "poo11 tpo11 tpo11 tpo11"
+        "poo11 por11 cpor11 b11"
+        "poo12 tpo12 tpo12 tpo12"
+        "poo12 por12 cpor12 b12";
+        transform: scale(0.8);
+        /*grid-template-columns: 200px 200px 100px 20px 50px 200px 200px 100px 20px 50px;
+        grid-template-rows: repeat (6,200px);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        margin: 10px;
+        justify-items:  center;
+        align-items: center;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+    }
+    .flexFooterPO {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .parallaxPO {
+        height: 350vh;
+    }
+    .menuPO{
+        /*background-color: black;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;*/
+        margin: 0px;
+    }
+    /**********************************************cierre media*****************************************************************/
+}

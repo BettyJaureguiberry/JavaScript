@@ -1,0 +1,44 @@
+.txtNosotros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.quienessomos {
+    text-align: center;
+    color:black;
+    line-height: 1.6;
+    border-radius: 5px;
+    border-style: solid;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 800px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    margin-bottom: 60px;
+}
+
+.cuadrosTXT {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.enlacocina {
+    text-align: center;
+    color:black;
+    line-height: 1.6;
+    border-radius: 5px;
+    border-style: solid;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 800px;
+    height: 100px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
