@@ -9,6 +9,8 @@ let telefono;
 let datoAdic;
 let orden;
 let datosPersonales;
+let pedidoFinal;
+let cantFinal;
 
 function tomarPedido (){
     do{
@@ -18,8 +20,6 @@ function tomarPedido (){
     do{
         cantidad=prompt("Cuantas porciones desea ordenar:");
     } while (cantidad<0);
-
-    aPagar=(cantidad * precios[pedido]);
 }
 
 
@@ -31,7 +31,7 @@ function datosEnvio(){
 }
 
 function ordenPedido(){
-    document.write("Gracias por su compra, a la brevedad llegara su pedido. Bom Apetit!")
+    document.write("Gracias por su compra, a la brevedad llegara su pedido. Bom Apetit!  ")
     document.write(orden);
     document.write(" $",cantidad * precios[pedido]);
     document.write(datosPersonales);
