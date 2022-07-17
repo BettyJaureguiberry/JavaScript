@@ -19,7 +19,7 @@ function tomarPedido (){
 
     do{
         cantidad=prompt("Cuantas porciones desea ordenar:");
-    } while (cantidad<0);
+    } while (cantidad<1);
 }
 
 
@@ -33,15 +33,15 @@ function datosEnvio(){
 function ordenPedido(){
     document.write("Gracias por su compra, a la brevedad llegara su pedido. Bom Apetit!  ")
     document.write(orden);
-    document.write(" $",cantidad * precios[pedido]);
+    document.write(" $",cantidad * precios[pedido-1]);
     document.write(datosPersonales);
 }
 
 function validarDatos(){
-    orden= productos[pedido] + " " + cantidad;
+    orden= productos[pedido-1] + " " + cantidad;
     datosPersonales= nombrecomp + " " + direccion + " " + telefono + " " + datoAdic;
 }
 tomarPedido();
 datosEnvio();
 validarDatos();
-ordenPedido(orden, aPagar, datosPersonales);
+ordenPedido();
