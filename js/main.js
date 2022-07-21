@@ -1,6 +1,5 @@
 const productos = ["Saquitos masa philo", "Pulpo sobre pastel de papa", "Vieiras a la plancha sobre pure de limón y pimiento","Gyozas de rabo de toro a la cordobesa"];
 const precios= [1500,2000,1800,1200];
-const datosEnvioArray=[];
 const pedido=[];
 const cantidad=[];
 const orden=[];
@@ -28,8 +27,7 @@ function tomarPedido (){
                 tomarPedido();
             }
             opMenu=parseInt(opMenu);
-            pedido[contPedido]=opMenu;
-            contPedido=contPedido+1;
+            pedido.push(opMenu);
         } while(opMenu>4); 
 
         do{
@@ -39,8 +37,7 @@ function tomarPedido (){
                 tomarPedido();
             }
             opCant=parseInt(opCant);
-            cantidad[contCant]=opCant;
-            contCant=contCant+1;
+            cantidad.push(opCant);
         } while (opCant<1);
 }
 function continuarOden(){
@@ -52,19 +49,28 @@ function continuarOden(){
         resp=(resp.toUpperCase());
     }
 }
-
-function datosEnvio(nombrecomp, direccion,telefono,datoAdic){//hacer objeto
-    this.nombrecomp=nombrecomp;
-    this.direccion=direccion;
-    this.telefono=telefono;
-    this.datoAdic=datoAdic;
+class datosEnvio{
+    constructor(nombrecomp, direccion,telefono, datoAdic){
+        this.nombrecomp=nombrecomp;
+        this.direccion=direccion;
+        this.telefono=telefono;
+        this.datoAdic=datoAdic;
+    }
+    mostrar(){
+        document.write(this.nombrecomp);
+        document.write(this.direccion);
+        document.write(this.telefono);
+        document.write(this.datoAdic);
+    }
 }
-function tomarDatos(){
-    datosEnvio.nombrecomp= prompt("Por favor ingrese su nombre completo:");
-    datosEnvio.direccion= prompt ("Ingrese por favor su direccion:");
-    datosEnvio.telefono= prompt ("Por favor ingrese un telefono de contacto:");
-    datosEnvio.datoAdic= prompt("Desea ingresar informacion adicional para la entrega del pedido:");
 
+function tomarDatos(){
+    const nombre= prompt("Por favor ingrese su nombre completo:");
+    const direc= prompt ("Ingrese por favor su direccion:");
+    const tel= prompt ("Por favor ingrese un telefono de contacto:");
+    const datoAdicional= prompt("Desea ingresar informacion adicional para la entrega del pedido:");
+    return new datosEnvio(nombre, direc, tel, datoAdicional);
+    
 }
     
 
@@ -74,8 +80,9 @@ function validarDatos(){
         index=index-1;
         pedidoFinal[i]=productos[index];
         montoPedido[i]=cantidad[i]*precios[index];
-        aPagar=montoPedido[i]+aPagar;
+        
     }
+    aPagar=montoPedido.reduce((acumulador, elemento)=>acumulador+elemento,0);
 }
 
 function ordenPedido(){
@@ -85,18 +92,14 @@ function ordenPedido(){
         document.write(cantidad[i],"Porciones");
         document.write("$ ",montoPedido[i]);
     }
-    document.write(datosEnvio.nombrecomp);
-    document.write(datosEnvio.direccion);
-    document.write(datosEnvio.telefono);
-    document.write(datosEnvio.datoAdic);
+    datos.mostrar();
     document.write("Monto a pagar:$",aPagar);
 }
 
 
 tomarPedido();
 continuarOden();
-datosEnvio();
-tomarDatos();
+const datos = tomarDatos();
 validarDatos();
 ordenPedido();
 
