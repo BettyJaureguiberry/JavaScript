@@ -81,7 +81,14 @@ productos.forEach((producto)=>{
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento,0);//No me esta sumando
     console.log(pedidoFinales);
     pedidoFinales.forEach((producto)=> {
-        document.getElementById("carrito").innerHTML += `${producto.title} - ${producto.price}`});
+        document.getElementById("itemsCarrito").innerHTML += `
+                <tr>
+                    <th scope="row">${producto.id}</th>
+                    <td>${producto.title}</td>
+                    <td>${producto.price}</td>
+                    <td><button class="btn btn-danger" width=10px>X</button></td>
+                </tr>`
+    });
     mostrarIngCarrito(producto.title);
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     })
@@ -90,12 +97,6 @@ productos.forEach((producto)=>{
 function mostrarIngCarrito (tituloProd){
     alert ("Se ingreso al pedido:"+tituloProd);
 };
-
-
-
-
-
-
 
 
 /*function tomarPedido (){
