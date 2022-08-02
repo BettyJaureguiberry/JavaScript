@@ -89,7 +89,7 @@ productos.forEach((producto)=>{
 
     })
 });
-
+const botonEliminar = pedidoFinales.length;
 function eliminarDelCarrito (){ 
     const eliminar=document.getElementById(`${botonEliminar}`);
     console.log(eliminar);
@@ -113,7 +113,7 @@ function eliminarDelCarrito (){
 
 //
 function mostrarIngCarrito(producto, pedidoFinales){  
-    const botonEliminar = pedidoFinales.length;
+    
     document.getElementById("itemsCarrito").innerHTML += `
                 <tr>
                     <th scope="row">${producto.id}</th>
