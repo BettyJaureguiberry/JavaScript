@@ -1,5 +1,5 @@
 const pedidoFinales=[];
-let aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento,0);
+let aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
 document.getElementById("carrito-total").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
 
 
@@ -9,24 +9,28 @@ const productos = [
         title:"Saquitos masa philo",
         price:1500,
         img: "imagenes/saquitos.jpg",
+        cantidad:1,
     },
     {
         id:2,
         title:"Pulpo sobre pastel de papa",
         price:2000,
-        img: "imagenes/polposutortinodipatate.jpg"
+        img: "imagenes/polposutortinodipatate.jpg",
+        cantidad:1,
     },
     {
         id:3,
         title:"Vieiras a la plancha sobre pure de limón y pimiento",
         price:1800,
         img: "imagenes/vieirassobrepure.jpg",
+        cantidad:1,
     },
     {
         id:4,
         title:"Gyozas de rabo de toro a la cordobesa",
         price:1200,
         img:"imagenes/gyozas.jpg",
+        cantidad:1,
 }];
 const pedido=[];
 const cantidad=[];
@@ -47,7 +51,7 @@ productos.forEach ((producto) => {
         ` 
         <div class="">
                     <div class="col mb-5 producto">
-                        <div id="id"+${producto.id} class="card h-100 productoId">
+                        <div id="id${producto.id}" class="card h-100 productoId">
                             <!-- Product image-->
                             <img class="card-img-top productoImg" src=${producto.img} alt=${producto.title}>
                             <!-- Product details-->
@@ -62,7 +66,7 @@ productos.forEach ((producto) => {
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button id="${idBoton}" data-id="${producto.id}  class="btn btn-outline-dark mt-auto productoBoton"  href="#">Ordenar</button>
+                                    <button id="${idBoton}" data-id="${producto.id}"  class="btn btn-outline-dark mt-auto productoBoton"  href="#">Ordenar</button>
                                 </div>
                             </div>
                         </div>
@@ -78,53 +82,54 @@ productos.forEach((producto)=>{
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
     pedidoFinales.push(producto);
-    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento,0);//No me esta sumando
+    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);//GRACIAS!!...ahi vi donde me estaba equivocando! ;)
     console.log(pedidoFinales);
-    pedidoFinales.forEach((producto)=> {
-        document.getElementById("itemsCarrito").innerHTML += `
-                <tr>
-                    <th scope="row">${producto.id}</th>
-                    <td>${producto.title}</td>
-                    <td>${producto.price}</td>
-                    <td><button class="btn btn-danger" width=10px>X</button></td>
-                </tr>`
-    });
-    mostrarIngCarrito(producto.title);
+    mostrarIngCarrito(producto, pedidoFinales);
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+
     })
 });
 
-function mostrarIngCarrito (tituloProd){
+function eliminarDelCarrito (){ 
+    const eliminar=document.getElementById(`${botonEliminar}`);
+    console.log(eliminar);
+    pedidoFinales.splice(eliminar, 1);
+    console.log(pedidoFinales);
+    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
+    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    document.getElementById("itemsCarrito").innerHTML ="";
+    for (const pedidoFinal of pedidoFinales){
+        document.getElementById("itemsCarrito").innerHTML += `
+                <tr>
+                    <th scope="row">${pedidoFinal.id}</th>
+                    <td>${pedidoFinal.title}</td>
+                    <td>${pedidoFinal.cantidad}</td>
+                    <td>${pedidoFinal.price}</td>
+                    <td><button onclick='eliminarDelCarrito()'  id="${botonEliminar}"  class="btn btn-danger" width=10px>X</button></td>
+                </tr>`;
+    };
+};     
+
+
+//
+function mostrarIngCarrito(producto, pedidoFinales){  
+    const botonEliminar = pedidoFinales.length;
+    document.getElementById("itemsCarrito").innerHTML += `
+                <tr>
+                    <th scope="row">${producto.id}</th>
+                    <td>${producto.title}</td>
+                    <td>${producto.cantidad}</td>
+                    <td>${producto.price}</td>
+                    <td><button onclick='eliminarDelCarrito()' id="${botonEliminar}"  class="btn btn-danger" width=10px>X</button></td>
+                </tr>`;
+};
+/*const botonEliminar = pedidoFinales.indexOf();
+    console.log("indexof"+botonEliminar);
+//
+/*function mostrarIngCarrito (tituloProd){
     alert ("Se ingreso al pedido:"+tituloProd);
-};
+};*/
 
-
-/*function tomarPedido (){
-            opMenu=prompt("Bienvenidos! Que desean ordenar: 1-Saquitos masa philo  2-Pulpo sobre pastel de papa  3-Vieiras a la plancha sobre pure de limón y pimiento  4-Gyozas de rabo de toro a la cordobesa");
-            if(isNaN(opMenu) || opMenu>4){
-                alert("El valor ingresado no es correcto, intente nuevamente.");
-                tomarPedido();
-            }
-            opMenu=parseInt(opMenu);
-            pedido.push(opMenu);
-
-            opCant=prompt("Cuantas porciones desea ordenar:");
-            if(isNaN(opCant) || opCant<1){
-                alert("El valor ingresado no es correcto, intente nuevamente.");
-                tomarPedido();
-            }
-            opCant=parseInt(opCant);
-            cantidad.push(opCant);
-};
-function continuarOden(){
-    resp=prompt("Desea ordenar algo mas:S/N");
-    resp=(resp.toUpperCase());
-    while (resp==="S"){
-        tomarPedido();
-        resp=prompt("Desea ordenar algo mas:S/N");
-        resp=(resp.toUpperCase());
-    }
-}*/
 class datosEnvio{
     constructor(nombrecomp, direccion,telefono, datoAdic){
         this.nombrecomp=nombrecomp;
@@ -140,43 +145,5 @@ class datosEnvio{
     }
 }
 
-/*function tomarDatos(){
-    const nombre= prompt("Por favor ingrese su nombre completo:");
-    const direc= prompt ("Ingrese por favor su direccion:");
-    const tel= prompt ("Por favor ingrese un telefono de contacto:");
-    const datoAdicional= prompt("Desea ingresar informacion adicional para la entrega del pedido:");
-    return new datosEnvio(nombre, direc, tel, datoAdicional);
-    
-}
-    
-
-function validarDatos(){
-    for (let i=0; i<pedido.length; i++){
-        index=pedido[i];
-        pedidoFinal[i]=productos[index];
-        montoPedido[i]=cantidad[i]*productos.price[index];
-        console.log(pedidoFinal[i]);
-        console.log(montoPedido[i]);
-    }
-    aPagar=montoPedido.reduce((acumulador, elemento)=>acumulador+elemento,0);
-}
-
-function ordenPedido(){
-    document.write("Gracias por su compra, a la brevedad llegara su pedido. Bom Apetit!  ")
-    for (let i=0; i<pedidoFinal.length; i++){
-        document.write(pedidoFinal[i]);
-        document.write(cantidad[i],"Porciones");
-        document.write("$ ",montoPedido[i]);
-    }
-    datos.mostrar();
-    document.write("Monto a pagar:$",aPagar);
-}
-
-
-/*tomarPedido();
-continuarOden();
-const datos = tomarDatos();
-validarDatos();
-ordenPedido();*/
 
 
