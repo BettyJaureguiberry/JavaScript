@@ -89,9 +89,9 @@ productos.forEach((producto)=>{
 
     })
 });
-const botonEliminar = pedidoFinales.length;
+
 function eliminarDelCarrito (){ 
-    const eliminar=document.getElementById(`${botonEliminar}`);
+    const eliminar=document.getElementById(`${pedidoFinales.length}`);
     console.log(eliminar);
     pedidoFinales.splice(eliminar, 1);
     console.log(pedidoFinales);
@@ -105,7 +105,7 @@ function eliminarDelCarrito (){
                     <td>${pedidoFinal.title}</td>
                     <td>${pedidoFinal.cantidad}</td>
                     <td>${pedidoFinal.price}</td>
-                    <td><button onclick='eliminarDelCarrito()'  id="${botonEliminar}"  class="btn btn-danger" width=10px>X</button></td>
+                    <td><button onclick='eliminarDelCarrito()'  id="${pedidoFinales.length}"  class="btn btn-danger" width=10px>X</button></td>
                 </tr>`;
     };
 };     
@@ -120,7 +120,7 @@ function mostrarIngCarrito(producto, pedidoFinales){
                     <td>${producto.title}</td>
                     <td>${producto.cantidad}</td>
                     <td>${producto.price}</td>
-                    <td><button onclick='eliminarDelCarrito()' id="${botonEliminar}"  class="btn btn-danger" width=10px>X</button></td>
+                    <td><button onclick='eliminarDelCarrito()' id="${pedidoFinales.length}"  class="btn btn-danger" width=10px>X</button></td>
                 </tr>`;
 };
 /*const botonEliminar = pedidoFinales.indexOf();
