@@ -100,41 +100,41 @@
         <section class="py-5">
             <div id="" class="container px-4 px-lg-5 mt-5" >
                 <div id="form" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></div>
-                <form class="row g-3 needs-validation" novalidate>
+                <form id="formulario" class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
+                        <label  for="validationCustom01" class="form-label">Nombre completo</label>
+                        <input id="nombre" type="text" class="form-control" value="" >
                         <div class="valid-feedback">
                         Looks good!
                     </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <label  for="validationCustom02" class="form-label">Direccion</label>
+                        <input id="apellido" type="text" class="form-control"  value="">
                         <div class="valid-feedback">
                         Looks good!
                     </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Email</label>
+                        <label  for="validationCustomUsername" class="form-label">Email</label>
                         <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        <input id="email" type="text" class="form-control"  aria-describedby="inputGroupPrepend" >
                         <div class="invalid-feedback">
                         Please choose a username.
                         </div>
                     </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="validationCustom03" class="form-label">Direccion</label>
-                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <label  for="validationCustom03" class="form-label">Mensaje</label>
+                        <input id="mensaje" type="text" class="form-control"  >
                         <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                     </div>
                     <div class="col-md-3">
                         <label for="validationCustom04" class="form-label">Localidad</label>
-                        <select class="form-select" id="validationCustom04" required>
+                        <select class="form-select" id="validationCustom04" >
                             <option selected disabled value="">Elegir...</option>
                             <option>Adrogue </option>
                         </select>
@@ -143,14 +143,14 @@
                     </div>
                     </div>
                     <div class="col-md-3">
-                        <label for="validationCustom05" class="form-label">Cod Postal</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
+                        <label  for="validationCustom05" class="form-label">Telefono</label>
+                        <input id="telefono" type="text" class="form-control" >
                         <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
                     </div>
                     
-                    <button class="btn btn-outline-dark" type="submit">Enviar Pedido</button>
+                    <button id="botonEnviar"  class="btn btn-outline-dark" type="submit">Enviar Pedido</button>
                     </div>
                 </form>
                 

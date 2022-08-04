@@ -10,6 +10,7 @@ const productos = [
         price:1500,
         img: "imagenes/saquitos.jpg",
         cantidad:1,
+        monto:0,
     },
     {
         id:2,
@@ -17,6 +18,7 @@ const productos = [
         price:2000,
         img: "imagenes/polposutortinodipatate.jpg",
         cantidad:1,
+        monto:0,
     },
     {
         id:3,
@@ -24,6 +26,7 @@ const productos = [
         price:1800,
         img: "imagenes/vieirassobrepure.jpg",
         cantidad:1,
+        monto:0,
     },
     {
         id:4,
@@ -31,11 +34,12 @@ const productos = [
         price:1200,
         img:"imagenes/gyozas.jpg",
         cantidad:1,
+        monto:0,
 }];
 const pedido=[];
 const cantidad=[];
 const orden=[];
-const montoPedido=[];
+
 
 
 let contPedido=0;
@@ -81,21 +85,44 @@ productos.forEach ((producto) => {
 productos.forEach((producto)=>{
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
+    const rdo= pedidoFinales.some((el) => el.id == producto.id);
+    console.log(rdo);
+    if (rdo==true){
+        //const cursos = pedidoFinales.map((producto) => { 
+            //if (producto.id === pedidoFinales.id){
+                pedidoFinales.cantidad++;
+                pedidoFinales.monto=pedidoFinales.cantidad * pedidoFinales.price;
+                const eliminar=document.getElementById(`${pedidoFinales.length}`);
+                pedidoFinales.splice(eliminar, 1);
+                document.getElementById("itemsCarrito").innerHTML ="";
+                for (const pedidoFinal of pedidoFinales){
+                    document.getElementById("itemsCarrito").innerHTML += `
+                        <tr>
+                            <th scope="row">${pedidoFinal.id}</th>
+                            <td>${pedidoFinal.title}</td>
+                            <td>${pedidoFinal.cantidad}</td>
+                            <td>${pedidoFinal.price}</td>
+                            <td><button onclick='eliminarDelCarrito()'  id="${pedidoFinales.length}"  class="btn btn-danger" width=10px>X</button></td>
+                        </tr>`;
+    };
+            //}
+            
+        //});
+        
+    }
     pedidoFinales.push(producto);
-    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);//GRACIAS!!...ahi vi donde me estaba equivocando! ;)
-    console.log(pedidoFinales);
+    cantFinal=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.cantidad,0);
+    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.monto,0);//GRACIAS!!...ahi vi donde me estaba equivocando! ;)
     mostrarIngCarrito(producto, pedidoFinales);
-    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${cantFinal} - Monto a Pagar:$${aPagar}`;
 
     })
 });
 
 function eliminarDelCarrito (){ 
     const eliminar=document.getElementById(`${pedidoFinales.length}`);
-    console.log(eliminar);
     pedidoFinales.splice(eliminar, 1);
-    console.log(pedidoFinales);
-    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
+    aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.monto,0);
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("itemsCarrito").innerHTML ="";
     for (const pedidoFinal of pedidoFinales){
@@ -130,20 +157,47 @@ function mostrarIngCarrito(producto, pedidoFinales){
     alert ("Se ingreso al pedido:"+tituloProd);
 };*/
 
+
+document.getElementById("botonEnviar").addEventListener('click', () => {
+    console.log("hola");
+    const nombre=document.getElementById("nombre");
+    const direccion=document.getElementById("apellido");
+    const email=document.getElementById("email");
+    const telefono=document.getElementById("telefono");
+    
+    let error="";
+    let emailOk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let validacion=false;
+
+    if(nombre.value.length <6){
+        error += 'El nombre no es valido';
+    }
+    if (!emailOk.test(email.value)){
+        error += 'El mail no es valido';
+    }
+    if (direccion.value.length <5){
+        error += 'El apellido no es valido';
+    }
+    if (isNaN(telefono)){
+        error += 'El telefono no es valido';
+    }
+    if(validacion){
+        alert(error);
+    }else {
+        console.log ("enviado");
+    }
+
+});
+
+
 class datosEnvio{
     constructor(nombrecomp, direccion,telefono, datoAdic){
         this.nombrecomp=nombrecomp;
         this.direccion=direccion;
         this.telefono=telefono;
         this.datoAdic=datoAdic;
-    }
-    mostrar(){
-        document.write(this.nombrecomp);
-        document.write(this.direccion);
-        document.write(this.telefono);
-        document.write(this.datoAdic);
-    }
-}
+    };
+};
 
 
 
