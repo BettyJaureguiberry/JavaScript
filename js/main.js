@@ -159,17 +159,17 @@ function mostrarIngCarrito(producto, pedidoFinales){
 
 
 document.getElementById("botonEnviar").addEventListener('click', () => {
-    console.log("hola");
     const nombre=document.getElementById("nombre");
     const direccion=document.getElementById("apellido");
     const email=document.getElementById("email");
     const telefono=document.getElementById("telefono");
+    const mostrarErrores=document.getElementById("errores");
     
     let error="";
     let emailOk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let validacion=false;
 
-    if(nombre.value.length <6){
+    if(nombre.value.length < 6){
         error += 'El nombre no es valido';
     }
     if (!emailOk.test(email.value)){
@@ -182,9 +182,9 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
         error += 'El telefono no es valido';
     }
     if(validacion){
-        alert(error);
+        mostrarErrores.innerHTML = error;
     }else {
-        console.log ("enviado");
+        mostrarErrores.innerHTML = "Pedido Enviado";
     }
 
 });
