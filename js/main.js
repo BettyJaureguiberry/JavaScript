@@ -60,7 +60,7 @@ const telefono="";
 const mensaje="";
 const mostrarErrores="";
 
-//Creamos las cards
+//cards
 productos.forEach ((producto) => {
     const idBoton=`add-cart${producto.id}`
     document.getElementById("cards").innerHTML +=
@@ -93,7 +93,10 @@ productos.forEach ((producto) => {
         `
     });
 
+    //para que se vea el carrito gardado
 carritoStorage();
+
+//agregamos prod al pedido
 productos.forEach((producto)=>{
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
@@ -104,6 +107,7 @@ productos.forEach((producto)=>{
     });
 });
 
+//funcion para mostrar el carrito
 function carritoStorage(){
     document.getElementById("itemsCarrito").innerHTML ="";
     calcularCarrito();
@@ -123,7 +127,7 @@ function carritoStorage(){
     carritoPop();    
 };
 
-//CALCULA CANTIDAD Y MONTO A PAGAR
+
 function calcularCarrito(){
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
     localStorage.setItem("tcarrito",JSON.stringify(pedidoFinales));
@@ -145,10 +149,9 @@ function mostrarIngCarrito(pedidoFinales){
     document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
     carritoPop(pedidoFinales);
 
-
-    
 };
 
+//No logro que se vea al hacer click sobre el boton pero si que diga aca estoy :(
 function carritoPop(){
     console.log ("aca estoy");
     pedidoFinales.forEach((pedidoFinal) => {  
@@ -177,7 +180,7 @@ document.getElementById("botonCarrito").addEventListener('click', ()=> {
     carritoPop();
 });
 
-//MUESTRA EL CARRITO DESPUES DE ELIMIAR UN ITEMS
+//muestra modificado el pedido despues de borrar un items
 function reescribirIngCarrito(pedidoFinales){ 
     document.getElementById("itemsCarrito").innerHTML ="";
     calcularCarrito();
@@ -198,7 +201,7 @@ function reescribirIngCarrito(pedidoFinales){
     carritoPop();    
 };
 
-//ELIMINAR DEL CARRITO
+//borrando items del pedido
 function eliminarDelCarrito(productoid){
     const ped=pedidoFinales.find((productos) => (productos.id)== productoid);
     console.log(ped);
@@ -213,7 +216,7 @@ function eliminarDelCarrito(productoid){
     
 }
 
-//FORMULARIO DATOS ENVIO
+//FORMULARIO DATOS ENVIO, no se porque no me funciona la validacion :(
 nombre=document.getElementById("nombre");
 direccion=document.getElementById("apellido");
 email=document.getElementById("email");
@@ -247,7 +250,7 @@ let mal="";
             }
         });
 
-document.getElementById("botonEnviar").addEventListener('click', () => {
+/*document.getElementById("botonEnviar").addEventListener('click', () => {
     carritoPop();
     alert("Pedido Enviado");
 });
