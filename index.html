@@ -17,9 +17,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="Primer Entrega" content="" />
+        <meta name="" content="" />
         <meta name="Betty Jaureguiberry" content="" />
-        <title>DOM-Eventos :: Index</title>
+        <title>2da Pre Entrega :: Index</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -48,11 +48,38 @@
                         </li>
                     </ul-->
                     <div class="d-flex">
-                        <button class="btn btn-outline-dark"  type="submit">
+                        <button id="botonCarrito" onclick=carritoPop() class="btn btn-outline-dark"  type="submit">
                             <i id="btCarrito" class="bi-cart-fill me-1" ></i>
                             Carrito
-                            <span id="carrito-total" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span id="carTotalEncabezado" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Pedido:</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Porciones</th>
+                                                    <th scope="col">Precio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="itemsPOP">                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -149,8 +176,10 @@
                         Please provide a valid zip.
                     </div>
                     </div>
-                    
-                    <button id="botonEnviar"  class="btn btn-outline-dark" type="submit">Enviar Pedido</button>
+                    <div>
+                        <button id="botonEnviar"  class="btn btn-outline-dark" type="submit">Enviar Pedido</button>
+                        <button id="botonLimpiar"  class="btn btn-outline-dark" type="clear">Limpiar</button>
+                    </div>
                     <p id="errores"> </p>
                     </div>
                 </form>
