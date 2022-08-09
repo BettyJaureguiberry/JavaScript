@@ -1,5 +1,5 @@
 
-const prodCarrito=JSON.parse(localStorage.getItem("carrito"));
+const prodCarrito=JSON.parse(localStorage.getItem("carrito")) ?? [];
 const pedidoFinales=prodCarrito;
 const tcarrito=localStorage.getItem('carrito');
 document.getElementById("carTotalEncabezado").innerHTML= tcarrito;
@@ -53,12 +53,12 @@ let opMenu;
 let opCant;
 let index=0;
 let cantFinal;
-const nombre ="";
-const direccion ="";
-const email="";
-const telefono="";
-const mensaje="";
-const mostrarErrores="";
+const nom ="";
+const direc ="";
+const mail="";
+const tel="";
+const mens="";
+let mensajeControl="";
 
 //cards
 productos.forEach ((producto) => {
@@ -124,7 +124,7 @@ function carritoStorage(){
                 document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
 
 });
-    carritoPop();    
+    //carritoPop();    
 };
 
 
@@ -147,13 +147,15 @@ function mostrarIngCarrito(pedidoFinales){
                 </tr>`;
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
-    carritoPop(pedidoFinales);
+    //carritoPop();
 
 };
 
-//No logro que se vea al hacer click sobre el boton pero si que diga aca estoy :(
+//
 function carritoPop(){
     console.log ("aca estoy");
+    document.getElementById("itemsPOP").innerHTML ="";
+    document.getElementById("datosPedido").innerHTML ="";
     pedidoFinales.forEach((pedidoFinal) => {  
     document.getElementById("itemsPOP").innerHTML += `
                 <tr>
@@ -163,17 +165,17 @@ function carritoPop(){
                     <td>${pedidoFinal.price}</td>
                     <td><button onclick='eliminarDelCarrito("${pedidoFinal.id}")' id="${pedidoFinal.id}"  class="btn btn-danger" width=10px>X</button></td>
                 </tr>
-                <tr>
-                    <th scope="row">${nombre}</th>
-                    <td>${direccion}</td>
-                    <td>${email}</td>
-                    <td>${telefono}</td>
-                    <td>${mensaje}</td>
+                
                 `;
-    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-    document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
-});
+    });
+    document.getElementById("montosPOP").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    document.getElementById("datosPedido").innerHTML += `
+                    <p>${nombre.value} - ${direccion.value} <br/></p>
+                    <p>${telefono.value} - ${mensaje.value}<br/></p>
+                    `;
+    
 };
+                
 
 document.getElementById("botonCarrito").addEventListener('click', ()=> {
     console.log ("botonCarrito");
@@ -183,7 +185,8 @@ document.getElementById("botonCarrito").addEventListener('click', ()=> {
 //muestra modificado el pedido despues de borrar un items
 function reescribirIngCarrito(pedidoFinales){ 
     document.getElementById("itemsCarrito").innerHTML ="";
-    calcularCarrito();
+    document.getElementById("itemsPOP").innerHTML ="";
+    document.getElementById("errores").innerHTML ="";
     pedidoFinales.forEach((pedidoFinal)=>{
         document.getElementById("itemsCarrito").innerHTML += `
                 <tr>
@@ -195,10 +198,10 @@ function reescribirIngCarrito(pedidoFinales){
                 </tr>`;
                 document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
                 document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
-                
+                calcularCarrito();
 
 });
-    carritoPop();    
+//carritoPop();     
 };
 
 //borrando items del pedido
@@ -213,49 +216,67 @@ function eliminarDelCarrito(productoid){
     };
     reescribirIngCarrito(pedidoFinales);
     calcularCarrito();
+    carritoPop();
     
 }
 
 //FORMULARIO DATOS ENVIO, no se porque no me funciona la validacion :(
-nombre=document.getElementById("nombre");
-direccion=document.getElementById("apellido");
-email=document.getElementById("email");
-telefono=document.getElementById("telefono");
-mensaje=document.getElementById("mensaje");
-mostrarErrores=document.getElementById("errores");
+const nombre=document.getElementById("nombre");
+const direccion=document.getElementById("apellido");
+const email=document.getElementById("email");
+const telefono=document.getElementById("telefono");
+const mensaje=document.getElementById("mensaje");
+const mostrarErrores=document.getElementById("errores");
 let mal="";
     nombre.addEventListener('change', () => {
         if(nombre.value.length < 5){
-            mal = 'El nombre no es valido';
+            mal += 'El nombre no es valido <br/>';
             mostrarErrores.innerHTML = mal;
             }
+        console.log(nombre.value);
         });
     direccion.addEventListener('change', () => {
         if (direccion.value.length<5){
-            mal = 'La direccion no es valido';
+            mal += 'La direccion no es valido <br/>';
             mostrarErrores.innerHTML = mal;
             }
         });
     email.addEventListener('change', () => {
         let emailOk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (!emailOk.test(email.value)){
-            mal = 'El mail no es valido';
+            mal += 'El mail no es valido <br/>';
             mostrarErrores.innerHTML = mal;
             }
         });
     telefono.addEventListener('change', () => {
         if (isNaN(telefono)){
-            mal = 'El telefono no es valido';
+            mal += 'El telefono no es valido <br/>';
             mostrarErrores.innerHTML = mal;
             }
         });
 
-/*document.getElementById("botonEnviar").addEventListener('click', () => {
+document.getElementById("botonEnviar").addEventListener('click', () => {
+    if(mal!=""){
+        mensajeControl +="Por Favor ingrese nuevamente los datos de envio.";
+        document.getElementById("errores").innerHTML += 
+        `<div id="alertaErrores" class="alert alert-danger" role="alert">
+                ${mensajeControl}         
+        </div>`
+    }
+    if(pedidoFinales===[]){
+        mensajeControl +="No ingreso ningun producto al pedido. Por favor controle su pedido. Muchas Gracias!";
+        document.getElementById("errores").innerHTML += 
+        `<div id="alertaErrores" class="alert alert-danger" role="alert">
+                ${mensajeControl}         
+        </div>`
+    }
     carritoPop();
-    alert("Pedido Enviado");
+
 });
     
-
+document.getElementById("botonConfirmar").addEventListener('click', ()=> {
+    alert("Gracias!. Esperamos su regreso. Hometown :: Beer & Friends ;)");
+});
 
 /*class datosEnvio{
     constructor(nombrecomp, direccion,telefono, datoAdic){

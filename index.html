@@ -48,7 +48,7 @@
                         </li>
                     </ul-->
                     <div class="d-flex">
-                        <button id="botonCarrito" onclick=carritoPop() class="btn btn-outline-dark"  type="submit">
+                        <button id="botonCarrito" onclick=carritoPop() class="btn btn-outline-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i id="btCarrito" class="bi-cart-fill me-1" ></i>
                             Carrito
                             <span id="carTotalEncabezado" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
@@ -57,7 +57,8 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Pedido:</h5>
+                                        <h6 class="modal-title" id="">Pedido:</h6>
+                                        <p id="datosPedido"></p>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -70,16 +71,37 @@
                                                     <th scope="col">Precio</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="itemsPOP">                                                
+                                            <tbody id="itemsPOP"> 
+                                                
                                             </tbody>
                                         </table>
+                                        
+                                        <div id="montosPOP">
+                                        </div-->
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button  id="botonConfirmar" type="button" data-bs-dismiss="modal" class="btn btn-secondary">Confirmar Pedido</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!--div class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Gracias por su compra!.</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                <div class="modal-body">
+                                    <p>Su pedido llegara a la brevedad posible. Bon Apetit!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button-->
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -176,13 +198,15 @@
                         Please provide a valid zip.
                     </div>
                     </div>
-                    <div>
-                        <button id="botonEnviar"  class="btn btn-outline-dark" type="submit">Enviar Pedido</button>
-                        <button id="botonLimpiar"  class="btn btn-outline-dark" type="clear">Limpiar</button>
-                    </div>
+                    
                     <p id="errores"> </p>
+                    
                     </div>
                 </form>
+                <div>
+                    <button id="botonEnviar" onclick=carritoPop() class="btn btn-outline-dark position-absolute top-400 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#exampleModal">Controlar Pedido</button>
+                    <!--button id="botonLimpiar"  class="btn btn-outline-dark" type="clear">Limpiar</button-->
+                </div>
                 
             </div>
         </section>
