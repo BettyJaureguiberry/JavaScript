@@ -134,16 +134,16 @@ function calcularCarrito(){
 };
 
 //MUESTRA LO CARGADO EN EL CARRITO
-function mostrarIngCarrito(pedidoFinales){  
+function mostrarIngCarrito(productos){  
     calcularCarrito();
     
     document.getElementById("itemsCarrito").innerHTML += `
                 <tr>
-                    <th scope="row">${pedidoFinales.id}</th>
-                    <td>${pedidoFinales.title}</td>
-                    <td>${pedidoFinales.cantidad}</td>
-                    <td>${pedidoFinales.price}</td>
-                    <td><button onclick='eliminarDelCarrito("${pedidoFinales.id}")' id="${pedidoFinales.id}"  class="btn btn-danger" width=10px>X</button></td>
+                    <th scope="row">${productos.id}</th>
+                    <td>${productos.title}</td>
+                    <td>${productos.cantidad}</td>
+                    <td>${productos.price}</td>
+                    <td><button onclick='eliminarDelCarrito("${productos.id}")' id="${productos.id}"  class="btn btn-danger" width=10px>X</button></td>
                 </tr>`;
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
