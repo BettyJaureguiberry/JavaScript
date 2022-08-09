@@ -43,22 +43,7 @@ const productos = [
         cantidad:1,
         monto:0,
 }];
-const pedido=[];
-const cantidad=[];
-const orden=[];
 
-let contPedido=0;
-let contCant=0; 
-let opMenu;
-let opCant;
-let index=0;
-let cantFinal;
-const nom ="";
-const direc ="";
-const mail="";
-const tel="";
-const mens="";
-let mensajeControl="";
 
 //cards
 productos.forEach ((producto) => {
@@ -111,15 +96,8 @@ productos.forEach((producto)=>{
 function carritoStorage(){
     document.getElementById("itemsCarrito").innerHTML ="";
     calcularCarrito();
-    pedidoFinales.forEach((pedidoFinal)=>{
-        document.getElementById("itemsCarrito").innerHTML += `
-                <tr>
-                    <th scope="row">${pedidoFinal.id}</th>
-                    <td>${pedidoFinal.title}</td>
-                    <td>${pedidoFinal.cantidad}</td>
-                    <td>${pedidoFinal.price}</td>
-                    <td><button onclick='eliminarDelCarrito("${pedidoFinal.id}")' id="${pedidoFinal.id}"  class="btn btn-danger" width=10px>X</button></td>
-                </tr>`;
+    pedidoFinales.forEach((pedidoFinales)=>{
+        document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
                 document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
                 document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
 
@@ -127,6 +105,16 @@ function carritoStorage(){
     //carritoPop();    
 };
 
+function lineasCarrito (productos){
+    return `
+    <tr>
+        <th scope="row">${productos.id}</th>
+        <td>${productos.title}</td>
+        <td>${productos.cantidad}</td>
+        <td>${productos.price}</td>
+        <td><button onclick='eliminarDelCarrito("${productos.id}")' id="${productos.id}"  class="btn btn-danger" width=10px>X</button></td>
+    </tr>`;
+}
 
 function calcularCarrito(){
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
@@ -136,15 +124,7 @@ function calcularCarrito(){
 //MUESTRA LO CARGADO EN EL CARRITO
 function mostrarIngCarrito(productos){  
     calcularCarrito();
-    
-    document.getElementById("itemsCarrito").innerHTML += `
-                <tr>
-                    <th scope="row">${productos.id}</th>
-                    <td>${productos.title}</td>
-                    <td>${productos.cantidad}</td>
-                    <td>${productos.price}</td>
-                    <td><button onclick='eliminarDelCarrito("${productos.id}")' id="${productos.id}"  class="btn btn-danger" width=10px>X</button></td>
-                </tr>`;
+    document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
     document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
     //carritoPop();
@@ -153,20 +133,10 @@ function mostrarIngCarrito(productos){
 
 //
 function carritoPop(){
-    console.log ("aca estoy");
     document.getElementById("itemsPOP").innerHTML ="";
     document.getElementById("datosPedido").innerHTML ="";
-    pedidoFinales.forEach((pedidoFinal) => {  
-    document.getElementById("itemsPOP").innerHTML += `
-                <tr>
-                    <th scope="row">${pedidoFinal.id}</th>
-                    <td>${pedidoFinal.title}</td>
-                    <td>${pedidoFinal.cantidad}</td>
-                    <td>${pedidoFinal.price}</td>
-                    <td><button onclick='eliminarDelCarrito("${pedidoFinal.id}")' id="${pedidoFinal.id}"  class="btn btn-danger" width=10px>X</button></td>
-                </tr>
-                
-                `;
+    pedidoFinales.forEach((pedidoFinales) => {  
+    document.getElementById("itemsPOP").innerHTML += lineasCarrito (pedidoFinales);
     });
     document.getElementById("montosPOP").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("datosPedido").innerHTML += `
@@ -175,7 +145,7 @@ function carritoPop(){
                     `;
     
 };
-                
+
 
 document.getElementById("botonCarrito").addEventListener('click', ()=> {
     console.log ("botonCarrito");
@@ -187,21 +157,13 @@ function reescribirIngCarrito(pedidoFinales){
     document.getElementById("itemsCarrito").innerHTML ="";
     document.getElementById("itemsPOP").innerHTML ="";
     document.getElementById("errores").innerHTML ="";
-    pedidoFinales.forEach((pedidoFinal)=>{
-        document.getElementById("itemsCarrito").innerHTML += `
-                <tr>
-                    <th scope="row">${pedidoFinal.id}</th>
-                    <td>${pedidoFinal.title}</td>
-                    <td>${pedidoFinal.cantidad}</td>
-                    <td>${pedidoFinal.price}</td>
-                    <td><button onclick='eliminarDelCarrito("${pedidoFinal.id}")' id="${pedidoFinal.id}"  class="btn btn-danger" width=10px>X</button></td>
-                </tr>`;
+    pedidoFinales.forEach((pedidoFinales)=>{
+        document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
                 document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
                 document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
                 calcularCarrito();
 
 });
-//carritoPop();     
 };
 
 //borrando items del pedido
@@ -275,14 +237,10 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
 });
     
 document.getElementById("botonConfirmar").addEventListener('click', ()=> {
-    alert("Gracias!. Esperamos su regreso. Hometown :: Beer & Friends ;)");
+    Swal.fire(
+        'Gracias!. Esperamos su regreso.',
+        'Hometown :: Beer & Friends',
+        )
+    
 });
 
-/*class datosEnvio{
-    constructor(nombrecomp, direccion,telefono, datoAdic){
-        this.nombrecomp=nombrecomp;
-        this.direccion=direccion;
-        this.telefono=telefono;
-        this.datoAdic=datoAdic;
-    };
-};*/
