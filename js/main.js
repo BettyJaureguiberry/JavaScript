@@ -98,8 +98,8 @@ function carritoStorage(){
     calcularCarrito();
     pedidoFinales.forEach((pedidoFinales)=>{
         document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
-                document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-                document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
+                //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+                //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
 
 });
     //carritoPop();    
@@ -118,6 +118,8 @@ function lineasCarrito (productos){
 
 function calcularCarrito(){
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
+    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
     localStorage.setItem("tcarrito",JSON.stringify(pedidoFinales));
 };
 
@@ -125,8 +127,8 @@ function calcularCarrito(){
 function mostrarIngCarrito(productos){  
     calcularCarrito();
     document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
-    document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-    document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
+    //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
     //carritoPop();
 
 };
@@ -138,7 +140,7 @@ function carritoPop(){
     pedidoFinales.forEach((pedidoFinales) => {  
     document.getElementById("itemsPOP").innerHTML += lineasCarrito (pedidoFinales);
     });
-    document.getElementById("montosPOP").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    //document.getElementById("montosPOP").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     document.getElementById("datosPedido").innerHTML += `
                     <p>${nombre.value} - ${direccion.value} <br/></p>
                     <p>${telefono.value} - ${mensaje.value}<br/></p>
@@ -159,8 +161,8 @@ function reescribirIngCarrito(pedidoFinales){
     document.getElementById("errores").innerHTML ="";
     pedidoFinales.forEach((pedidoFinales)=>{
         document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
-                document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-                document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
+                //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+                //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
                 calcularCarrito();
 
 });
