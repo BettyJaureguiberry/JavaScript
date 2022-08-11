@@ -44,6 +44,13 @@ const productos = [
         monto:0,
 }];
 
+productos.forEach(producto => {
+    const {price}=producto;
+    console.log(price);
+});
+    
+
+
 
 //cards
 productos.forEach ((producto) => {
@@ -127,6 +134,20 @@ function calcularCarrito(){
 function mostrarIngCarrito(productos){  
     calcularCarrito();
     document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
+    Toastify({
+        text: "Se agrego con exito al pedido",
+        duration: 1000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right,   #7f8c8d  ,   #aeb6bf  )",
+        },
+        onClick: function(){} // Callback after click
+    }).showToast();
     //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
     //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
     //carritoPop();
@@ -193,7 +214,6 @@ const mensaje=document.getElementById("mensaje");
 const mostrarErrores=document.getElementById("errores");
 let mal="";
     nombre.addEventListener('change', () => {
-        
         nombre.value.length < 5 ? mostrarErrores.innerHTML += 'El nombre no es valido <br/>' : "";
         nombre.value.length < 5 ? mal="uno" : "";
         /*if(nombre.value.length < 5){
