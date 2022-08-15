@@ -1,14 +1,14 @@
 
-const prodCarrito=JSON.parse(localStorage.getItem("carrito")) ?? [];
-const pedidoFinales=prodCarrito;
-const tcarrito=localStorage.getItem('carrito');
-document.getElementById("carTotalEncabezado").innerHTML= tcarrito;
+const pedidoFinales=JSON.parse(localStorage.getItem("tcarrito")) ?? [];
+document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales;
 aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
 document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length + "- $" + aPagar;
 
 //Declaracion de variables
 
 let mensajeControl="";
+let pedi=0;
+let ind=0;
 
 const productos = [
     {
@@ -93,11 +93,11 @@ productos.forEach((producto)=>{
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
         pedidoFinales.push(producto);
-        localStorage.setItem("tcarrito", JSON.stringify(tcarrito));
         mostrarIngCarrito(producto);
         calcularCarrito(producto.price);
     });
 });
+
 
 //funcion para mostrar el carrito
 function carritoStorage(){
@@ -105,8 +105,7 @@ function carritoStorage(){
     calcularCarrito();
     pedidoFinales.forEach((pedidoFinales)=>{
         document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
-                //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-                //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length + "- $" + aPagar;
+
 
 });
     //carritoPop();    
@@ -148,9 +147,7 @@ function mostrarIngCarrito(productos){
         },
         onClick: function(){} // Callback after click
     }).showToast();
-    //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-    //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
-    //carritoPop();
+    
 
 };
 
@@ -161,7 +158,7 @@ function carritoPop(){
     pedidoFinales.forEach((pedidoFinales) => {  
     document.getElementById("itemsPOP").innerHTML += lineasCarrito (pedidoFinales);
     });
-    //document.getElementById("montosPOP").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
+    
     document.getElementById("datosPedido").innerHTML += `
                     <p>${nombre.value} - ${direccion.value} <br/></p>
                     <p>${telefono.value} - ${mensaje.value}<br/></p>
@@ -182,8 +179,6 @@ function reescribirIngCarrito(pedidoFinales){
     document.getElementById("errores").innerHTML ="";
     pedidoFinales.forEach((pedidoFinales)=>{
         document.getElementById("itemsCarrito").innerHTML += lineasCarrito (pedidoFinales);
-                //document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:${pedidoFinales.length} - Monto a Pagar:$${aPagar}`;
-                //document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales.length  + "- $" + aPagar;
                 calcularCarrito();
 
 });
@@ -193,7 +188,6 @@ function reescribirIngCarrito(pedidoFinales){
 function eliminarDelCarrito(productoid){
     const ped=pedidoFinales.find((productos) => (productos.id)== productoid);
     console.log(ped);
-    
     const index = pedidoFinales.indexOf(ped);
     console.log(index);
     if (index !=-1){
@@ -216,40 +210,23 @@ let mal="";
     nombre.addEventListener('change', () => {
         nombre.value.length < 5 ? mostrarErrores.innerHTML += 'El nombre no es valido <br/>' : "";
         nombre.value.length < 5 ? mal="uno" : "";
-        /*if(nombre.value.length < 5){
-            mal += 'El nombre no es valido <br/>';
-            mostrarErrores.innerHTML = mal;
-            }
-        console.log(nombre.value);*/
+        
         });
     direccion.addEventListener('change', () => {
         direccion.value.length<5 ? mostrarErrores.innerHTML += 'La direccion no es valido <br/>' : "";
         direccion.value.length<5 ? mal = "uno" : "";
-        /*if (direccion.value.length<5){
-            mal += 'La direccion no es valido <br/>';
-            mostrarErrores.innerHTML = mal;
-            }*/
         });
     email.addEventListener('change', () => {
         let emailOk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         !emailOk.test(email.value) ? mostrarErrores.innerHTML +='El mail no es valido <br/>' : "";
         !emailOk.test(email.value) ? mal= "uno" : ""; 
         return mal;
-        /*if (!emailOk.test(email.value)){
-            mal += 'El mail no es valido <br/>';
-            mostrarErrores.innerHTML = mal;
-            }*/
         });
 
     telefono.addEventListener('change', () => {
         isNaN(telefono) ? mal="uno" : "";
         isNaN(telefono) ? mostrarErrores.innerHTML += 'El telefono no es valido <br/>' : "";
-        
         return mal; 
-        /*if (isNaN(telefono)){
-            mal += 'El telefono no es valido <br/>';
-            mostrarErrores.innerHTML = mal;
-            }*/
         });
 
 document.getElementById("botonEnviar").addEventListener('click', () => {
@@ -268,8 +245,9 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
                 ${mensajeControl}         
         </div>`
     }
-    mal="" && carritoPop();
-    //carritoPop();
+    if (mal === "") {
+        carritoPop();
+    }
 
 });
     
