@@ -1,14 +1,13 @@
 
 const pedidoFinales=JSON.parse(localStorage.getItem("tcarrito")) ?? [];
-document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales;
+//document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales;
 aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
 document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length + "- $" + aPagar;
 
 //Declaracion de variables
 
 let mensajeControl="";
-let pedi=0;
-let ind=0;
+let ped=true;
 
 const productos = [
     {
@@ -92,7 +91,7 @@ carritoStorage();
 productos.forEach((producto)=>{
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
-        pedidoFinales.push(producto);
+        //pedidoFinales.push(producto);
         mostrarIngCarrito(producto);
         calcularCarrito(producto.price);
     });
@@ -117,10 +116,13 @@ function lineasCarrito (productos){
         <th scope="row">${productos.id}</th>
         <td>${productos.title}</td>
         <td>${productos.cantidad}</td>
+        
         <td>${productos.price}</td>
         <td><button onclick='eliminarDelCarrito("${productos.id}")' id="${productos.id}"  class="btn btn-danger" width=10px>X</button></td>
     </tr>`;
-}
+};
+
+//<td><input type="number" name="porcion" class="cantPorc" id="${productos.id}" ></td>
 
 function calcularCarrito(){
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
@@ -129,26 +131,30 @@ function calcularCarrito(){
     localStorage.setItem("tcarrito",JSON.stringify(pedidoFinales));
 };
 
-//MUESTRA LO CARGADO EN EL CARRITO
-function mostrarIngCarrito(productos){  
-    calcularCarrito();
-    document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
-    Toastify({
-        text: "Se agrego con exito al pedido",
-        duration: 1000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: "linear-gradient(to right,   #7f8c8d  ,   #aeb6bf  )",
-        },
-        onClick: function(){} // Callback after click
-    }).showToast();
-    
 
+//MUESTRA LO CARGADO EN EL CARRITO
+function mostrarIngCarrito(productos){ 
+    const ped=pedidoFinales.find((productos) => (productos.id)== productos);
+    console.log("ped",ped);
+    
+    if (ped == undefined){
+        calcularCarrito();
+        document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
+        pedidoFinales.push(productos);
+        console.log(pedidoFinales);
+        
+    }else { 
+            const index = pedidoFinales.indexOf(ped);
+            console.log("index", index);
+            if (index !=-1){
+                const p= ped.cantidad+1 ;
+                console.log("cambios en cant",p);
+            };
+        calcularCarrito();
+        document.getElementById("itemsCarrito").innerHTML += lineasCarrito (productos);
+        
+    }
+    
 };
 
 //
