@@ -9,7 +9,7 @@ document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length +
 let mensajeControl="";
 let ped=true;
 
-const productos = [
+/*const productos = [
     {
         id:1,
         title:"Saquitos masa philo",
@@ -41,7 +41,7 @@ const productos = [
         img:"imagenes/gyozas.jpg",
         cantidad:1,
         monto:0,
-}];
+}];*/
 
 productos.forEach(producto => {
     const {price}=producto;

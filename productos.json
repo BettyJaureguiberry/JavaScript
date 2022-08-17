@@ -1,0 +1,6 @@
+[ 
+{"id":1,"title":"Saquitos masa philo","price":1500,"img": "imagenes/saquitos.jpg","cantidad":1,"monto":0},
+{"id":2,"title":"Pulpo sobre pastel de papa","price":2000,"img": "imagenes/polposutortinodipatate.jpg","cantidad":1,"monto":0},
+{"id":3,"title":"Vieiras a la plancha sobre pure de limón y pimiento","price":1800,"img": "imagenes/vieirassobrepure.jpg","cantidad":1,"monto":0},
+{"id":4,"title":"Gyozas de rabo de toro a la cordobesa","price":1200,"img":"imagenes/gyozas.jpg","cantidad":1,"monto":0}
+]
