@@ -43,19 +43,25 @@ let ped=true;
         monto:0,
 }];*/
 
-productos.forEach(producto => {
+/*productos.forEach(producto => {
     const {price}=producto;
     console.log(price);
-});
+});*/
     
+const usarFetch = () => {
+    fetch ('productos.json')
+    .then ((respuesta) => respuesta.json)
+    .then ( datos => {
+        lineasCarrito(datos)
+        mostrarIngCarrito(datos)
+});
+}
+usarFetch();     
 
 
-
-//cards
 productos.forEach ((producto) => {
     const idBoton=`add-cart${producto.id}`
-    document.getElementById("cards").innerHTML +=
-        ` 
+            ` 
         <div class="">
                     <div class="col mb-5 producto">
                         <div id="id${producto.id}" class="card h-100 productoId">
@@ -84,11 +90,16 @@ productos.forEach ((producto) => {
         `
     });
 
+    document.getElementById("cards").innerHTML += accDatos;
+
+
     //para que se vea el carrito gardado
 carritoStorage();
 
 //agregamos prod al pedido
-productos.forEach((producto)=>{
+
+        
+productos.forEach ((producto) => {
     const idBoton=`add-cart${producto.id}`
     document.getElementById(idBoton).addEventListener('click', ()=> {
         //pedidoFinales.push(producto);
