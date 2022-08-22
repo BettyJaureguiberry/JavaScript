@@ -9,8 +9,8 @@ document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length +
 let mensajeControl="";
 let ped=true;
 
-/*const productos = [
-    {
+const productos = [
+    /*{
         id:1,
         title:"Saquitos masa philo",
         price:1500,
@@ -41,74 +41,69 @@ let ped=true;
         img:"imagenes/gyozas.jpg",
         cantidad:1,
         monto:0,
-}];*/
+}*/];
 
-/*productos.forEach(producto => {
+const prodJSON = () => {
+    fetch ('productos.json')
+        .then (response => response.json())
+        .then (data => {
+            data.forEach ((producto) => {
+                const idBoton=`add-cart${producto.id}`
+                document.getElementById("cards").innerHTML +=
+                    ` 
+                    <div class="">
+                                <div class="col mb-5 producto">
+                                    <div id="id${producto.id}" class="card h-100 productoId">
+                                        <!-- Product image-->
+                                        <img class="card-img-top productoImg" src=${producto.img} alt=${producto.title}>
+                                        <!-- Product details-->
+                                        <div class="card-body p-4">
+                                            <div class="text-center">
+                                                <!-- Product name-->
+                                                <h5 class="fw-bolder productoTitulo">${producto.title}.</h5>
+                                                <!-- Product price-->
+                                                <p class="productoPrecio">${producto.price}</p>
+                                            </div>
+                                        </div>
+                                        <!-- Product actions-->
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                            <div class="text-center">
+                                                <button id="${idBoton}" data-id="${producto.id}"  class="btn btn-outline-dark mt-auto productoBoton"  href="#">Ordenar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>  
+                    `
+            console.log(data)
+        }
+        );
+        data.forEach((producto)=>{
+            const idBoton=`add-cart${producto.id}`
+            document.getElementById(idBoton).addEventListener('click', ()=> {
+                console.log("boton prod")
+            //pedidoFinales.push(producto);
+            mostrarIngCarrito(producto);
+            calcularCarrito(producto.price);
+        });
+    });
+});
+};
+prodJSON();
+    
+productos.forEach(producto => {
     const {price}=producto;
     console.log(price);
-});*/
-    
-const usarFetch = () => {
-    fetch ('productos.json')
-    .then ((respuesta) => respuesta.json)
-    .then ( datos => {
-        lineasCarrito(datos)
-        mostrarIngCarrito(datos)
 });
-}
-usarFetch();     
-
-
-productos.forEach ((producto) => {
-    const idBoton=`add-cart${producto.id}`
-            ` 
-        <div class="">
-                    <div class="col mb-5 producto">
-                        <div id="id${producto.id}" class="card h-100 productoId">
-                            <!-- Product image-->
-                            <img class="card-img-top productoImg" src=${producto.img} alt=${producto.title}>
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder productoTitulo">${producto.title}.</h5>
-                                    <!-- Product price-->
-                                    <p class="productoPrecio">${producto.price}</p>
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <button id="${idBoton}" data-id="${producto.id}"  class="btn btn-outline-dark mt-auto productoBoton"  href="#">Ordenar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>  
-        `
-    });
-
-    document.getElementById("cards").innerHTML += accDatos;
 
 
     //para que se vea el carrito gardado
 carritoStorage();
 
-//agregamos prod al pedido
 
-        
-productos.forEach ((producto) => {
-    const idBoton=`add-cart${producto.id}`
-    document.getElementById(idBoton).addEventListener('click', ()=> {
-        //pedidoFinales.push(producto);
-        mostrarIngCarrito(producto);
-        calcularCarrito(producto.price);
-    });
-});
-
-
+//agregandoProd();
 //funcion para mostrar el carrito
 function carritoStorage(){
     document.getElementById("itemsCarrito").innerHTML ="";
@@ -227,11 +222,14 @@ let mal="";
     nombre.addEventListener('change', () => {
         nombre.value.length < 5 ? mostrarErrores.innerHTML += 'El nombre no es valido <br/>' : "";
         nombre.value.length < 5 ? mal="uno" : "";
-        
+        nombre.value.length ==0 ? mal="vacio" : ""
+        return mal;        
         });
     direccion.addEventListener('change', () => {
         direccion.value.length<5 ? mostrarErrores.innerHTML += 'La direccion no es valido <br/>' : "";
         direccion.value.length<5 ? mal = "uno" : "";
+        direccion.value.length<0 ? mal = "vacio" : "";
+        return mal;
         });
     email.addEventListener('change', () => {
         let emailOk=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -249,6 +247,7 @@ let mal="";
 document.getElementById("botonEnviar").addEventListener('click', () => {
     console.log("botonenviar");
     if(mal==="uno"){
+        mostrarErrores.innerHTML += '';
         mensajeControl += "Por Favor ingrese nuevamente los datos de envio. <br/> ";
         document.getElementById("errores").innerHTML += 
         `<div id="alertaErrores" class="alert alert-danger" role="alert">
@@ -256,6 +255,7 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
         </div>`
     }
     if(pedidoFinales.length===0){
+        mostrarErrores.innerHTML += '';
         mensajeControl +="No ingreso ningun producto al pedido. Por favor controle su pedido. Muchas Gracias!";
         document.getElementById("errores").innerHTML += 
         `<div id="alertaErrores" class="alert alert-danger" role="alert">
@@ -263,7 +263,15 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
         </div>`
     }
     if (mal === "") {
+        mostrarErrores.innerHTML += '';
         carritoPop();
+    }
+    if (mal === "vacio") {
+        mostrarErrores.innerHTML += '';
+        document.getElementById("errores").innerHTML += 
+        `<div id="alertaErrores" class="alert alert-danger" role="alert">
+                Por favor debe ingresar los datos para poder completar la compra. Muchas Gracias!         
+        </div>`;
     }
 
 });
@@ -275,4 +283,65 @@ document.getElementById("botonConfirmar").addEventListener('click', ()=> {
         )
     
 });
+
+document.getElementById("botonPagar").addEventListener('click', ()=> {
+    Swal.fire(
+        'Quedo registrado que abona en efectivo en la entrega. Gracias!',
+        'Hometown :: Beer & Friends',
+        )
+    
+});
+//********************************************************MP*************************************************************
+/*document.getElementById("botonPagar").addEventListener('click', ()=> {
+    console.log ("botonPAGAR");
+    pagoMP();
+});*/
+
+const mp = new MercadoPago('TEST-32d7649a-0973-4280-a1f4-6c4f7a9c93d3');
+const bricksBuilder = mp.bricks();
+const renderCardPaymentBrick = async (bricksBuilder) => {
+
+    const settings = {
+        initialization: {
+            amount: 100, //valor del pago a realizar
+        },
+        callbacks: {
+            onReady: () => {
+          // callback llamado cuando Brick esté listo
+            },
+            onSubmit: (cardFormData) => {
+          // callback llamado cuando el usuario haga clic en el botón enviar los datos
+
+          // ejemplo de envío de los datos recolectados por el Brick a su servidor
+                return new Promise((resolve, reject) => {
+                    fetch("/process_payment", { 
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(cardFormData)
+                    })
+                    .then((response) => {
+                        // recibir el resultado del pago
+                        resolve();
+                    })
+                    .catch((error) => {
+                        // tratar respuesta de error al intentar crear el pago
+                        reject();
+                    })
+                });
+        },
+        onError: (error) => { 
+          // callback llamado para todos los casos de error de Brick
+        },
+    },
+    };
+    const cardPaymentBrickController = await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+};
+renderCardPaymentBrick(bricksBuilder);
+
+function pagoMP(){
+
+}
+
 

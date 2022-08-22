@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="" content="" />
         <meta name="Betty Jaureguiberry" content="" />
-        <title>2da Pre Entrega :: Index</title>
+        <title>Entrega Final :: Index</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -27,6 +27,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
     </head>
     <body>
         <!-- Navigation-->
@@ -75,43 +76,29 @@
                                             <tbody id="itemsPOP"> 
                                                 
                                             </tbody>
+                                            <tfoot>
+                                                
+                                            </tfoot>
                                         </table>
-                                        
-                                        <div id="montosPOP">
-                                        </div-->
+                                        <div class="container px-4 px-lg-5 mt-5"  id="cardPaymentBrick_container"></div>
                                     </div>
                                     <div class="modal-footer">
                                         <button  id="botonConfirmar" type="button" data-bs-dismiss="modal" class="btn btn-secondary">Confirmar Pedido</button>
+                                        <button  id="botonPagar" type="button" data-bs-dismiss="modal" class="btn btn-secondary">Pago Efectivo</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!--div class="modal" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Gracias por su compra!.</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                <div class="modal-body">
-                                    <p>Su pedido llegara a la brevedad posible. Bon Apetit!</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button-->
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
-                </div>
             </div>
         </nav>
-        <!-- Header-->
-        <header class="bg-dark py-5">
+        <!-- Header---->
+        <header class="bg-dark py-5"> 
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Hometown :: Beer & Friends</h1>
+                    <h1 class="display-4 fw-bolder ">Hometown :: Beer & Friends</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Enamorate de la Cocina Fusión</p>
                 </div>
             </div>
@@ -145,6 +132,8 @@
                     <tbody id="itemsCarrito">
                         
                     </tbody>
+
+                    
                 </table>
             </div>
         </section>
@@ -206,10 +195,11 @@
                     </div>
                 </form>
                 <div>
+                    <div class="container px-4 px-lg-5 mt-5"  id="cardPaymentBrick_container"></div>
                     <button id="botonEnviar" onclick=carritoPop() class="btn btn-outline-dark position-absolute top-400 start-50 translate-middle"  data-bs-toggle="modal" data-bs-target="#exampleModal">Controlar Pedido</button>
                     <!--button id="botonLimpiar"  class="btn btn-outline-dark" type="clear">Limpiar</button-->
                 </div>
-                
+
             </div>
         </section>
         <!-- Footer-->
@@ -219,9 +209,12 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/scripts.js"></script>
         <script src="/js/main.js"></script>
+        
+        
     </body>
 </html>
