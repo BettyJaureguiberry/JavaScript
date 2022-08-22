@@ -222,13 +222,13 @@ let mal="";
     nombre.addEventListener('change', () => {
         nombre.value.length < 5 ? mostrarErrores.innerHTML += 'El nombre no es valido <br/>' : "";
         nombre.value.length < 5 ? mal="uno" : "";
-        nombre.value.length ==0 ? mal="vacio" : ""
+        //nombre.value.length ==0 ? mal="vacio" : ""
         return mal;        
         });
     direccion.addEventListener('change', () => {
         direccion.value.length<5 ? mostrarErrores.innerHTML += 'La direccion no es valido <br/>' : "";
         direccion.value.length<5 ? mal = "uno" : "";
-        direccion.value.length<0 ? mal = "vacio" : "";
+        //direccion.value.length<0 ? mal = "vacio" : "";
         return mal;
         });
     email.addEventListener('change', () => {
