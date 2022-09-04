@@ -1,6 +1,6 @@
 
 const pedidoFinales=JSON.parse(localStorage.getItem("tcarrito")) ?? [];
-//document.getElementById("carTotalEncabezado").innerHTML= pedidoFinales;
+
 aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
 document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length + "- $" + aPagar;
 
@@ -9,39 +9,7 @@ document.getElementById("carTotalEncabezado").innerHTML = pedidoFinales.length +
 let mensajeControl="";
 let ped=true;
 
-const productos = [
-    /*{
-        id:1,
-        title:"Saquitos masa philo",
-        price:1500,
-        img: "imagenes/saquitos.jpg",
-        cantidad:1,
-        monto:0,
-    },
-    {
-        id:2,
-        title:"Pulpo sobre pastel de papa",
-        price:2000,
-        img: "imagenes/polposutortinodipatate.jpg",
-        cantidad:1,
-        monto:0,
-    },
-    {
-        id:3,
-        title:"Vieiras a la plancha sobre pure de limón y pimiento",
-        price:1800,
-        img: "imagenes/vieirassobrepure.jpg",
-        cantidad:1,
-        monto:0,
-    },
-    {
-        id:4,
-        title:"Gyozas de rabo de toro a la cordobesa",
-        price:1200,
-        img:"imagenes/gyozas.jpg",
-        cantidad:1,
-        monto:0,
-}*/];
+const productos = [];
 
 const prodJSON = () => {
     fetch ('productos.json')
@@ -128,7 +96,7 @@ function lineasCarrito (productos){
     </tr>`;
 };
 
-//<td><input type="number" name="porcion" class="cantPorc" id="${productos.id}" ></td>
+
 
 function calcularCarrito(){
     aPagar=pedidoFinales.reduce((acumulador, elemento)=>acumulador+elemento.price,0);
@@ -222,7 +190,6 @@ let mal="";
     nombre.addEventListener('change', () => {
         nombre.value.length < 5 ? mostrarErrores.innerHTML += 'El nombre no es valido <br/>' : "";
         nombre.value.length < 5 ? mal="uno" : "";
-        //nombre.value.length ==0 ? mal="vacio" : ""
         return mal;        
         });
     direccion.addEventListener('change', () => {
@@ -266,7 +233,7 @@ document.getElementById("botonEnviar").addEventListener('click', () => {
         mostrarErrores.innerHTML += '';
         carritoPop();
     }
-    if (mal === "vacio") {
+    if (nombre.value.length == "" && direccion.value.length == "" ) {
         mostrarErrores.innerHTML += '';
         document.getElementById("errores").innerHTML += 
         `<div id="alertaErrores" class="alert alert-danger" role="alert">
@@ -281,6 +248,13 @@ document.getElementById("botonConfirmar").addEventListener('click', ()=> {
         'Gracias!. Esperamos su regreso.',
         'Hometown :: Beer & Friends',
         )
+        //pedidoFinales={};
+        document.getElementById("itemsCarrito").innerHTML ="";
+        document.getElementById("itemsPOP").innerHTML ="";
+        document.getElementById("carritoTotal").innerHTML = `Cantidad Pedida:0 - Monto a Pagar:$0`;
+        document.getElementById("carTotalEncabezado").innerHTML= 0 + "- $" + 0;
+
+    
     
 });
 
@@ -292,10 +266,6 @@ document.getElementById("botonPagar").addEventListener('click', ()=> {
     
 });
 //********************************************************MP*************************************************************
-/*document.getElementById("botonPagar").addEventListener('click', ()=> {
-    console.log ("botonPAGAR");
-    pagoMP();
-});*/
 
 const mp = new MercadoPago('TEST-32d7649a-0973-4280-a1f4-6c4f7a9c93d3');
 const bricksBuilder = mp.bricks();
@@ -323,6 +293,10 @@ const renderCardPaymentBrick = async (bricksBuilder) => {
                     })
                     .then((response) => {
                         // recibir el resultado del pago
+                        Swal.fire(
+                            'Se proceso el pago. Muchas Gracias!.',
+                            'Hometown :: Beer & Friends',
+                            )
                         resolve();
                     })
                     .catch((error) => {
@@ -340,8 +314,6 @@ const renderCardPaymentBrick = async (bricksBuilder) => {
 };
 renderCardPaymentBrick(bricksBuilder);
 
-function pagoMP(){
 
-}
 
 
